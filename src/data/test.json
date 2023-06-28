@@ -1,0 +1,19 @@
+[
+    {
+        "first": "Smith",
+        "middle": "Muhuri",
+        "last": "Gakuya",
+        "uid": 0,
+        "about": "I graduated Magna cum Laude from Middlebury College with a BA. in Computer Science. I would love to chat about Entry-Level Software Engineering opportunities.",
+        "art": ["../data/umojaGrad.jpg"],
+        "github": "https://github.com/Sgakuya",
+        "linkedin": "https://www.linkedin.com/in/smith-gakuya/",
+        "phone": "+1(802)458-5296",
+        "email": "smithgakuya@gmail.com",
+        "street": "609 Painter Rd",
+        "state": "Vermont",
+        "zip": "05753",
+        "town": "Middlebury"
+
+    }
+]

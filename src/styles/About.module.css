@@ -1,0 +1,21 @@
+.contact{
+    display: grid;
+    gap: 1vmin;
+    opacity: 0.3;
+}
+
+.links{
+    display: flex;
+    color: white;
+    text-align: center;
+    transform: translate(46%,200%);
+    gap: 5vmin;
+    margin-bottom: 100px;
+}
+
+.wrapper{
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
