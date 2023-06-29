@@ -12,7 +12,7 @@ export function Main({user }){
         const track = document.getElementById("images");
 
         window.onmousedown = e =>{ 
-            console.log(track);
+            // console.log(track);
             track.dataset.mouseDownAt = e.clientX;
         }
     
@@ -30,13 +30,22 @@ export function Main({user }){
             const percentage = (mouseDelta/maxDelta) * -100;
             let nextPercentage = parseFloat(track.dataset.prevPercentage) + percentage;
 
-            // console.log(Math.min(nextPercentage, 100), Math.max(nextPercentage, 0));
             if(nextPercentage < -100) { nextPercentage = -100; }
             if(nextPercentage > 0) { nextPercentage = 0; }
-            // console.log(nextPercentage);
             track.dataset.percentage = nextPercentage;
-            track.style.transform = `translate(${nextPercentage}%, 10%)`;
+            track.animate({
+                transform: `translate(${nextPercentage}%, 10%)`
+            }, {duration:1200, fill:"forwards"});
+
+            console.log(nextPercentage);
+
+            for(const image of track.getElementsByClassName("image")){
+                image.animate({
+                    objectPosition: `${nextPercentage + 100}% 50%`
+                }, {duration:1200, fill:"forwards"});
+            }
         }
+        
     }, [])
 
     return (
@@ -44,23 +53,21 @@ export function Main({user }){
             <h1 className="first"> {user.first} </h1>
             {/* <h1 className="middle"> {user.middle} </h1> */}
             <h1 className="last"> {user.last} </h1>
-            <div className={homeStyles.wrapper}>
-                <div className={homeStyles.links}>
-                        <div>
-                            <Link className='link' to="/">Glimpse</Link>            
-                        </div>
-                        <div>
-                            <Link className='link' to="/about">About</Link>
-                        </div>
-                </div>
+            <div className={homeStyles.links}>
+                    <Link className='link' to="/">Glimpse</Link>            
+                    <Link className='link' to="/about">About</Link>
+            </div>
+            {/* <div className={homeStyles.wrapper}> */}
                 <div id="images" data-prev-percentage="0" data-mouse-down-at="0" className={homeStyles.images}>
-                    <img src={require("../data/grad.jpeg")} alt="My friends and I on grad day" draggable="false"></img>
-                    <img src={require("../data/doechii.jpeg")} alt="Me with artist Doechii" draggable="false"></img>
-                    <img src={require("../data/heelie.jpeg")} alt="Me doing a heelflip" draggable="false"></img>
-                    <img src={require("../data/bsuGrad.jpeg")} alt="Middlebury African class of '23" draggable="false"></img>
+                    <img className="image" src={require("../data/umojaGrad.jpg")} alt="Middlebury African class of '23" draggable="false"></img>
+                    <img className="image" src={require("../data/grad.jpeg")} alt="My friends and I on grad day" draggable="false"></img>
+                    <img className="image" src={require("../data/doechii.jpeg")} alt="Me with artist Doechii" draggable="false"></img>
+                    <img className="image" src={require("../data/heelie.jpeg")} alt="Me doing a heelflip" draggable="false"></img>
+                    <img className="image" src={require("../data/bsuGrad.jpeg")} alt="Middlebury African class of '23" draggable="false"></img>
+                    <img className="image" src={require("../data/board.jpeg")} alt="Snowboard attached to my feet while lying on snow" draggable="false"></img>
 
                 </div>
-            </div>
+            {/* </div> */}
         </>
     )
 }

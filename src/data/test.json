@@ -4,8 +4,15 @@
         "middle": "Muhuri",
         "last": "Gakuya",
         "uid": 0,
-        "about": "I graduated Magna cum Laude from Middlebury College with a BA. in Computer Science. I would love to chat about Entry-Level Software Engineering opportunities.",
+        "about": "I graduated Magna cum Laude from Middlebury College with a BA. in Computer Science. \n I would love to chat about Entry-Level Software Engineering opportunities.",
         "art": ["../data/umojaGrad.jpg"],
+        "experience": [
+            {"position": "Research Assistant", "company":"Middlebury College", "start": "June 2022", "stop": "August 2022"},
+            {"position": "Office Assistant", "company":"Middlebury College", "start": "May 2021", "stop": "July 2021"},
+            {"position": "Student Consultant", "company":"The Orvis Company", "start": "June 2020", "stop": "July 2020"},
+            {"position": "Project Intern", "company":"Kenya Scholar Access Program", "start": "May 2019", "stop": "July 2019"},
+            {"position": "Relationship Officer", "company":"Equity Bank Ltd.", "start": "January 2018", "stop": "July 2019"}
+        ],
         "github": "https://github.com/Sgakuya",
         "linkedin": "https://www.linkedin.com/in/smith-gakuya/",
         "phone": "+1(802)458-5296",
