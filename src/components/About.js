@@ -14,18 +14,19 @@ export function About({user}) {
 
     const content = (
         <div>
-            <p>{user.about}</p>
-                <h2> Working Experience </h2>
-                {experiences}
-                <div></div>
-
-                <h2> Get in Touch </h2>
-                <div className={aboutStyles.contact}>
-                    <a className="link" href={`mailto: ${user.email}`}>Email</a>
-                    <a className="link" href={user.linkedin}>LinkedIn</a>
-                    <a className="link" href={user.github}>GitHub</a> 
-                    <a className="link" href={`tel:${user.phone}`}>Phone</a>
-                </div>
+            <p>{user.about} </p>
+            <br/><br/>
+            <h2> Working Experience </h2>
+            {experiences}
+            <div></div>
+            <br/><br/>
+            <h2> Get in Touch </h2>
+            <div className={aboutStyles.contact}>
+                <a className="link" href={`mailto: ${user.email}`}>Email</a>
+                <a className="link" href={user.linkedin}>LinkedIn</a>
+                <a className="link" href={user.github}>GitHub</a> 
+                <a className="link" href={`tel:${user.phone}`}>Phone</a>
+            </div>
         </div>
     )
 
@@ -65,9 +66,9 @@ export function About({user}) {
     }, [])
 
     return (
-        <>
+        <div>
+
             <h1 className="first"> {user.first} </h1>
-            {/* <h1 className="middle"> {user.middle} </h1> */}
             <h1 className="last"> {user.last} </h1>     
             <div className={aboutStyles.links}>
                     <Link className='link' to="/">Glimpse</Link>            
@@ -79,8 +80,8 @@ export function About({user}) {
             <div id="about" data-prev-percentage="0" data-mouse-down-at="0" className={aboutStyles.about}>     
                 {content}
             </div>
-            
-            
-        </>
+
+            </div>
+
     )
 }
