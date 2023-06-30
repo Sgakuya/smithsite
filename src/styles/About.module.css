@@ -7,9 +7,9 @@
 }
 
 .links{
-    display: flex;
-    color: white;
+    display: flex;    
     text-align: center;
+    color: white;
     transform: translate(46%,200%);
     gap: 5vmin;
     margin-bottom: 100px;

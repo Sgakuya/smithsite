@@ -8,6 +8,11 @@ export function Main({user }){
     const [loading, setLoading] = useState(true);
 
     let track = useRef();
+    const override = {
+        position: "absolute",
+        top: "42%",
+        left: "42%",
+    };
     
     useEffect(()=>{
         setLoading(true);
@@ -17,12 +22,6 @@ export function Main({user }){
 
         return function () { clearTimeout(timeout)};
     }, [])
-
-    const override = {
-        position: "absolute",
-        top: "42%",
-        left: "42%",
-    };
 
     const mouseDown = e => {
         track.current.dataset.mouseDownAt = e.clientX;
@@ -34,7 +33,6 @@ export function Main({user }){
     }
 
     const mouseMove = e => {
-        console.log(track.current);
         if(track.current.dataset.mouseDownAt === "0") return;
 
         const mouseDelta = parseFloat(track.current.dataset.mouseDownAt) - e.clientX;
@@ -43,11 +41,11 @@ export function Main({user }){
         const percentage = (mouseDelta/maxDelta) * -100;
         let nextPercentage = parseFloat(track.current.dataset.prevPercentage) + percentage;
 
-        if(nextPercentage < -100) { nextPercentage = -100; }
+        if(nextPercentage < -135) { nextPercentage = -135; }
         if(nextPercentage > 0) { nextPercentage = 0; }
         track.current.dataset.percentage = nextPercentage;
         track.current.animate({
-            transform: `translate(${nextPercentage}%, 10%)`
+            transform: `translate(${nextPercentage}%, 2%)`
         }, {duration:1200, fill:"forwards"});
 
         for(const image of track.current.getElementsByClassName("image")){
@@ -56,6 +54,21 @@ export function Main({user }){
             }, {duration:1200, fill:"forwards"});
         }
     }
+
+    const onScroll = e => {
+        console.log(e.currentTarget);
+    }
+
+    const images = (
+        <div className='imgs-track'>
+            <img className="img" src={require("../data/grad.jpeg")} alt="My friends and I on grad day" draggable="false"></img>
+            <img className="img" src={require("../data/umojaGrad.jpg")} alt="Middlebury African class of '23" draggable="false"></img>
+            <img className="img" src={require("../data/doechii.jpeg")} alt="Me with artist Doechii" draggable="false"></img>
+            <img className="img" src={require("../data/board.jpeg")} alt="Snowboard attached to my feet while lying on snow" draggable="false"></img>
+            <img className="img" src={require("../data/heelie.jpeg")} alt="Me doing a heelflip" draggable="false"></img>
+            <img className="img" src={require("../data/bsuGrad.jpeg")} alt="Middlebury African class of '23" draggable="false"></img>
+        </div>
+    )
 
     return (
         <>
@@ -72,19 +85,20 @@ export function Main({user }){
                     <Link className='link' to="/">Glimpse</Link>            
                     <Link className='link' to="/about">About</Link>
             </div>
-                <div id="images" ref={track} data-prev-percentage="0" data-mouse-down-at="0" className={homeStyles.images} 
-                        onMouseDown={(e)=>mouseDown(e)} onMouseUp={(e)=>mouseUp(e)} onMouseMove={(e) => mouseMove(e)}
-                        >
-                    <img className="image" src={require("../data/umojaGrad.jpg")} alt="Middlebury African class of '23" draggable="false"></img>
+                <div className={homeStyles.images} ref={track} data-prev-percentage="0" data-mouse-down-at="0" onMouseDown={(e)=>mouseDown(e)} 
+                    onMouseUp={(e)=>mouseUp(e)} onMouseMove={(e) => mouseMove(e)}>
+                    
                     <img className="image" src={require("../data/grad.jpeg")} alt="My friends and I on grad day" draggable="false"></img>
+                    <img className="image" src={require("../data/umojaGrad.jpg")} alt="Middlebury African class of '23" draggable="false"></img>
                     <img className="image" src={require("../data/doechii.jpeg")} alt="Me with artist Doechii" draggable="false"></img>
+                    <img className="image" src={require("../data/board.jpeg")} alt="Snowboard attached to my feet while lying on snow" draggable="false"></img>
                     <img className="image" src={require("../data/heelie.jpeg")} alt="Me doing a heelflip" draggable="false"></img>
                     <img className="image" src={require("../data/bsuGrad.jpeg")} alt="Middlebury African class of '23" draggable="false"></img>
-                    <img className="image" src={require("../data/board.jpeg")} alt="Snowboard attached to my feet while lying on snow" draggable="false"></img>
-
                 </div>
-
+                {images}
+                {/* <div className='img-scroll-box'></div> */}
             </div>)
+                
         }
         </>
     )

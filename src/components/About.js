@@ -4,11 +4,22 @@ import { useEffect } from 'react';
 
 export function About({user}) {
 
-    const experiences = user.experience.map( (e, i) => {
+    const experiences = user.experiences.map( (e, i) => {
         return (
         <div key={i}> 
-            <p> <i>{e.position}</i> || {e.company} </p>
+            <h4> <i>{e.position}</i> || {e.company} </h4>
+            <p className='info'> {e.info} </p>
             <p className='date'> {e.start} to {e.stop} </p>
+            <br></br>
+        </div>)
+    });
+
+    const projects = user.projects.map( (e, i) => {
+        return (
+        <div key={i}> 
+            <h3> <i>{e.title}</i> </h3>
+            <p className='info'> {e.info} </p>
+            <br></br>
         </div>)
     });
 
@@ -18,8 +29,9 @@ export function About({user}) {
             <br/><br/>
             <h2> Working Experience </h2>
             {experiences}
-            <div></div>
             <br/><br/>
+            <h2> Projects Sample </h2>
+            {projects}
             <h2> Get in Touch </h2>
             <div className={aboutStyles.contact}>
                 <a className="link" href={`mailto: ${user.email}`}>Email</a>
@@ -31,7 +43,8 @@ export function About({user}) {
     )
 
     useEffect(()=>{
-        const track = document.getElementById("about");
+        const track = document.getElementById("about"), 
+            scrollBox = document.getElementById("scroll-box");
 
         window.onmousedown = e =>{ 
             // console.log(track);
@@ -52,12 +65,17 @@ export function About({user}) {
             const percentage = (mouseDelta/maxDelta) * -100;
             let nextPercentage = parseFloat(track.dataset.prevPercentage) + percentage;
 
-            if(nextPercentage < -100) { nextPercentage = -100; }
+            if(nextPercentage < -70) { nextPercentage = -70; }
             if(nextPercentage > 0) { nextPercentage = 0; }
-            console.log(nextPercentage);
+            console.log( nextPercentage);
             track.dataset.percentage = nextPercentage;
             track.animate({
                 transform: `translate(0%, ${nextPercentage}%)`
+            }, {duration:1200, fill:"forwards"});
+
+            const nextScroll = nextPercentage*-2.3;
+            scrollBox.animate({
+                transform: `translate(0%, ${nextScroll}%)`
             }, {duration:1200, fill:"forwards"});
 
         }
@@ -74,6 +92,7 @@ export function About({user}) {
                     <Link className='link' to="/">Glimpse</Link>            
                     <Link className='link' to="/about">About</Link>
             </div> 
+            <div id="scroll-box" className='scroll-box'></div>
             <div className='scroll'>
                 {content}
             </div>

@@ -4,14 +4,20 @@
         "middle": "Muhuri",
         "last": "Gakuya",
         "uid": 0,
-        "about": "I graduated Magna cum Laude from Middlebury College with a BA. in Computer Science. \n I would love to chat about Entry-Level Software Engineering opportunities.",
+        "about": "I graduated with Magna cum Laude Honors from Middlebury College with a BA. in Computer Science. I am a Kenyan currently living in the US who is looking for Entry-Level Software Engineering opportunities as I further my CS skills. Please reach out if you believe I could provide I could be a great fit for a project/position",
         "art": ["../data/umojaGrad.jpg"],
-        "experience": [
-            {"position": "Research Assistant", "company":"Middlebury College", "start": "June 2022", "stop": "August 2022"},
-            {"position": "Office Assistant", "company":"Middlebury College", "start": "May 2021", "stop": "July 2021"},
-            {"position": "Student Consultant", "company":"The Orvis Company", "start": "June 2020", "stop": "July 2020"},
-            {"position": "Project Intern", "company":"Kenya Scholar Access Program", "start": "May 2019", "stop": "July 2019"},
-            {"position": "Relationship Officer", "company":"Equity Bank Ltd.", "start": "January 2018", "stop": "July 2019"}
+        "experiences": [
+            {"position": "Research Assistant", "company":"Middlebury College", "start": "June 2022", "stop": "August 2022", "info":"Worked at a Research Assistant in Middlebury College's CS department. Developed algorithms to efficiently schedule rides for the Tri-Valley Transit company in Central Vermont"},
+            {"position": "Office Assistant", "company":"Middlebury College", "start": "May 2021", "stop": "July 2021", "info": "Digitized systems and acted as a System Administrator for the International Students and Scholar Services office at Middlebury College"},
+            {"position": "Student Consultant", "company":"The Orvis Company", "start": "June 2020", "stop": "July 2020", "info":"Consulted for the Orvis Company through the MiddCORE program and helped boost their reach to millennial clientele amid the COVID pandemic"},
+            {"position": "Project Intern", "company":"Kenya Scholar Access Program", "start": "May 2019", "stop": "July 2019", "info":"Tutored and mentored high achieving high school graduates in Kenya and enabled them entry into prestigious American Institutions"},
+            {"position": "Relationship Officer", "company":"Equity Bank Ltd.", "start": "January 2018", "stop": "July 2019", "info":"Worked as a customer facing employee in the Ruiru, Kenya branch helping customers to undertake bulk transactions as well as providing micro-financing to smaller businesses"}
+        ],
+        "projects": [
+            {"title": "Personal Portfolio", "info" : "Built this web application using React JS, Node and Firebase to showcase my web development and UI/UX skills"},
+            {"title": "Proficiency Tracker Web App", "info" : "Built a Proficiency Tracking web application for professors to track student progress in an ungraded course. Utilized Scrum, Agile and Test-Driven development skills in a team of 10 to ensure proper functionality"},
+            {"title": "Dial-A-Ride Web App", "info" : "Built a web application using Django to enable clients in Central Vermont to request rides through the Dial-A-Ride service provided by Tri-Valley Transit. Utilized CS fundamentals to create Greedy algorithms for optimal schedule generation"},
+            {"title": "Handwriting Recognition Desktop App", "info" : "Built a desktop notepad using the Qt framework and C++ and made use of Symbolic Reasoning AI to translate the input to characters in the German alphabet"}
         ],
         "github": "https://github.com/Sgakuya",
         "linkedin": "https://www.linkedin.com/in/smith-gakuya/",
