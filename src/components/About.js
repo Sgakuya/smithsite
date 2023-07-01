@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import aboutStyles from "../styles/About.module.css"
-import { useEffect } from 'react';
+import { useRef } from 'react';
 
 export function About({user}) {
+    let track = useRef();
+    let scrollBox = useRef();
 
     const experiences = user.experiences.map( (e, i) => {
         return (
@@ -42,46 +44,62 @@ export function About({user}) {
         </div>
     )
 
-    useEffect(()=>{
-        const track = document.getElementById("about"), 
-            scrollBox = document.getElementById("scroll-box");
+    const mouseDown = e => {
+        track.current.dataset.mouseDownAt = e.clientY;
+    }
 
-        window.onmousedown = e =>{ 
-            // console.log(track);
-            track.dataset.mouseDownAt = e.clientY;
-        }
-    
-        window.onmouseup = () => {
-            track.dataset.mouseDownAt = "0";
-            track.dataset.prevPercentage = track.dataset.percentage;
-        }
-    
-        window.onmousemove = e =>{
-            if(track.dataset.mouseDownAt === "0") return;
+    const mouseUp = e => {
+        track.current.dataset.mouseDownAt = "0";
+        track.current.dataset.prevPercentage = track.current.dataset.percentage;
+    }
 
-            const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientY;
-            const maxDelta = window.innerHeight / 2;
+    const mouseMove = e => {
+        if(track.current.dataset.mouseDownAt === "0") return;
 
-            const percentage = (mouseDelta/maxDelta) * -100;
-            let nextPercentage = parseFloat(track.dataset.prevPercentage) + percentage;
+        const mouseDelta = parseFloat(track.current.dataset.mouseDownAt) - e.clientY;
+        const maxDelta = window.innerHeight / 2;
 
-            if(nextPercentage < -70) { nextPercentage = -70; }
-            if(nextPercentage > 0) { nextPercentage = 0; }
-            console.log( nextPercentage);
-            track.dataset.percentage = nextPercentage;
-            track.animate({
-                transform: `translate(0%, ${nextPercentage}%)`
-            }, {duration:1200, fill:"forwards"});
+        const percentage = (mouseDelta/maxDelta) * -100;
+        let nextPercentage = parseFloat(track.current.dataset.prevPercentage) + percentage;
 
-            const nextScroll = nextPercentage*-2.3;
-            scrollBox.animate({
-                transform: `translate(0%, ${nextScroll}%)`
-            }, {duration:1200, fill:"forwards"});
+        if(nextPercentage < -80) { nextPercentage = -80; }
+        if(nextPercentage > 0) { nextPercentage = 0; }
+        track.current.dataset.percentage = nextPercentage;
+        console.log(track);
 
-        }
+        track.current.animate({
+            transform: `translate(0%, ${nextPercentage}%)`
+        }, {duration:1200, fill:"forwards"});
 
-        
-    }, [])
+        const nextScroll = nextPercentage*-2.3;
+        scrollBox.current.animate({
+            transform: `translate(0%, ${nextScroll}%)`
+        }, {duration:1200, fill:"forwards"});
+    }
+
+    const onScroll = e => {
+        mouseDown(e);
+
+        const maxDelta = window.innerHeight / 2;
+        const percentage = ((e.deltaY)/maxDelta) * -100;
+        let nextPercentage = parseFloat(track.current.dataset.prevPercentage) + percentage;
+
+        if(nextPercentage < -80) { nextPercentage = -80; }
+        if(nextPercentage > 0) { nextPercentage = 0; }
+        track.current.dataset.percentage = nextPercentage;
+        console.log(track);
+
+        track.current.animate({
+            transform: `translate(0%, ${nextPercentage}%)`
+        }, {duration:1200, fill:"forwards"});
+
+        const nextScroll = nextPercentage*-2.3;
+        scrollBox.current.animate({
+            transform: `translate(0%, ${nextScroll}%)`
+        }, {duration:1200, fill:"forwards"});
+
+        mouseUp(e);
+    }
 
     return (
         <div>
@@ -92,11 +110,12 @@ export function About({user}) {
                     <Link className='link' to="/">Glimpse</Link>            
                     <Link className='link' to="/about">About</Link>
             </div> 
-            <div id="scroll-box" className='scroll-box'></div>
+            <div ref={scrollBox} className='scroll-box'></div>
             <div className='scroll'>
                 {content}
             </div>
-            <div id="about" data-prev-percentage="0" data-mouse-down-at="0" className={aboutStyles.about}>     
+            <div ref={track} data-prev-percentage="0" data-mouse-down-at="0" className={aboutStyles.about}
+                 onMouseDown={(e)=>mouseDown(e)}  onMouseUp={(e)=>mouseUp(e)} onMouseMove={(e) => mouseMove(e)} onWheel={e=> onScroll(e)}>     
                 {content}
             </div>
 
