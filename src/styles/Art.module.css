@@ -1,0 +1,25 @@
+.links {
+    display: flex;
+    color: white;
+    text-align: center;
+    transform: translate(46%,200%);
+    gap: 5vmin;
+    margin-bottom: 100px;
+}
+
+.wrapper{
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.images {
+    margin: 0 auto;
+    display: flex;
+    gap: 4vmin;
+    position: relative ;
+    left: 30%;
+    transform: translate(0%, 2%);
+  }
+
+

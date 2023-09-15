@@ -77,7 +77,7 @@ export function About({user}) {
         }, {duration:1200, fill:"forwards"});
     }
 
-    const onScroll = e => {
+    const onscroll = e => {
         mouseDown(e);
 
         const maxDelta = window.innerHeight / 2;
@@ -102,20 +102,25 @@ export function About({user}) {
     }
 
     return (
-        <div>
+        <div onMouseDown={(e)=>mouseDown(e)}  onMouseUp={(e)=>mouseUp(e)} onMouseMove={(e) => mouseMove(e)} 
+        onWheel={e=> onscroll(e)}
+        onTouchStart={e=>mouseDown(e)} onTouchEnd={e=>mouseUp(e)} onTouchMove={e=>mouseMove(e)}
+        onScrollCapture={(e) => onscroll(e)}
+        >
 
             <h1 className="first"> {user.first} </h1>
             <h1 className="last"> {user.last} </h1>     
             <div className={aboutStyles.links}>
-                    <Link className='link' to="/">Glimpse</Link>            
-                    <Link className='link' to="/about">About</Link>
+                    <Link className='link' to="/">Home</Link>            
+                    {/* <Link className='link' to="/art">Art</Link> */}
             </div> 
             <div ref={scrollBox} className='scroll-box'></div>
             <div className='scroll'>
                 {content}
             </div>
             <div ref={track} data-prev-percentage="0" data-mouse-down-at="0" className={aboutStyles.about}
-                 onMouseDown={(e)=>mouseDown(e)}  onMouseUp={(e)=>mouseUp(e)} onMouseMove={(e) => mouseMove(e)} onWheel={e=> onScroll(e)}>     
+                 
+                 >     
                 {content}
             </div>
 

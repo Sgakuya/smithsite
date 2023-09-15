@@ -4,8 +4,11 @@
 }
 
 body {
-  height: 100vh;
-  width: 100vw;
+  overscroll-behavior-x: none;
+  /* height: 100vh;
+  width: 100vw; */
+  height: 100%;
+  width: 100%;
   background-color: black;
   margin: 0rem;
   overflow: hidden;
@@ -22,6 +25,15 @@ code {
   text-decoration: none;
   color: white;
   cursor: pointer;
+}
+
+.links {
+  display: flex;
+  color: white;
+  text-align: center;
+  transform: translate(46%,200%);
+  gap: 5vmin;
+  margin-bottom: 100px;
 }
 
 .first {
@@ -47,13 +59,18 @@ code {
 
 .date{
   /* opacity: 1.5; */
-  color: lightblue;
+  color: rgb(46, 238, 46);
   text-align: right;
+}
+
+.title{
+  color: rgb(46, 238, 46);
+  /* text-align: center; */
 }
 
 .info{
   opacity: .7;
-  text-align: justify;
+  text-align: left;
 }
 
 .scroll{
@@ -117,4 +134,28 @@ code {
   -moz-user-select: none;
   -o-user-select: none;
   user-select: none;
+}
+
+.flex-container {
+  position: relative;
+  margin: 15% auto auto auto;
+  max-width: 75%;
+}
+
+.flex-child {
+  float: left;
+  margin: 0px 20px 20px 0;
+}  
+
+.flex-child:first-child {
+  margin-right: 20px;
+}
+
+.contact{
+  /* width: 20%; */
+  text-align: center;
+  display: grid;
+  gap: 1%;
+  opacity: 0.3;
+
 }
