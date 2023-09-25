@@ -138,7 +138,7 @@ code {
 
 .flex-container {
   position: relative;
-  margin: 15% auto auto auto;
+  margin: 0% auto auto auto;
   max-width: 75%;
 }
 
@@ -158,4 +158,8 @@ code {
   gap: 1%;
   opacity: 0.3;
 
+}
+
+.zoom{
+  color: white;
 }
