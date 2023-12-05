@@ -35,7 +35,7 @@ export function Main({user}){
                     <p><strong>Meeting ID: </strong> 969 9804 0243 </p> */}
                     <br></br>
                     <p>I am a recent graduate from Middlebury College. I grew up in Kenya and am an avid skateboarder/snowboarder, occasional artist, and customized e-bike enthusiast.</p>
-                    <p>My professional/research interests include Software & Web Development, Cyber Security, NLP and LLMs. </p>
+                    <p>My professional/research interests include Software & Web Development, Algorithm Development, Cyber Security, NLP and LLMs. </p>
                 </div>
             </div>
             
