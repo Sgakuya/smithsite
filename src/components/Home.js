@@ -14,13 +14,13 @@ export function Main({user}){
             </div>
 
             <div className="flex-container">
+                <h2 className='title'> <i>Assistant in Instruction</i><br/>Middlebury College CS Department</h2>
                 <div className='flex-child'>
                     <img 
                     className={homeStyles.portrait} 
                     src={require("../data/portrait.jpg")} alt='Smith Gakuya Middlebury Grad and Software Engineer'></img>
                 </div>
                 <div className='flex-child2' >
-                    <h2 className='title'> <i>Assistant in Instruction</i> - Middlebury College CS Department</h2>
                     <br></br>
                     <p> <strong>Office:</strong> 75 Shannon Street 221 </p>
                     <p><strong>Office Hours:</strong> Monday - Friday = 1:30PM - 4:30PM and by appointment</p>

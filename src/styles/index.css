@@ -65,7 +65,8 @@ code {
 
 .title{
   color: rgb(46, 238, 46);
-  /* text-align: center; */
+
+  text-align: center;
 }
 
 .info{
