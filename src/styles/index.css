@@ -11,9 +11,14 @@ body {
   width: 100%;
   background-color: black;
   margin: 0rem;
-  overflow: hidden;
   color: white;
+  overflow: hidden;
   font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.test {
+  overflow: hidden;
+
 }
 
 code {

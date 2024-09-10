@@ -23,7 +23,9 @@ export function Main({user}){
                 <div className='flex-child2' >
                     <br></br>
                     <p> <strong>Office:</strong> 75 Shannon Street 221 </p>
-                    <p><strong>Office Hours:</strong> M 10:00AM-13:00PM, T 9:00AM-12:00PM, W 12:00-3:00PM, TR 9:00AM-12:00PM, F 1:00-4:00PM or by appointment</p>
+                    <p><strong>Office Hours:</strong> M 10:00AM-12:00PM and 1:00PM-3:00PM, T 9:00AM-12:00PM, W 12:00-3:00PM, TR 9:00AM-12:00PM, F 1:30-3:30PM or by appointment </p>
+                    <p> <strong>Exam Week Office Hours:</strong> Monday - Friday 1:30-4:30PM</p>
+                    <p><strong>SPRING SYMPOSIUM Friday(4/19): </strong> Email to schedule a meeting </p>
                     <p><strong>Email:</strong> sgakuya@middlebury.edu </p>
                     <p>I can comfortably offer help in 145, 200, 201, 202, 302 and 312. I can also work together with you to solve problems in 301 and 390. 
                         It might be helpful to send me an email with the topics/questions you are struggling with so I can help you more efficiently.<br></br><br></br>

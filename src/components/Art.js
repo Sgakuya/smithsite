@@ -118,7 +118,7 @@ export function Art({user }){
             <img className="image" src={require("../data/heelie.jpeg")} alt="Me doing a heelflip" draggable="false"></img>
             <img className="image" src={require("../data/bsuGrad.jpeg")} alt="Middlebury African class of '23" draggable="false"></img>
         </div>
-        {images}            
+        {/* {images}             */}
         </div>)
                 
         }

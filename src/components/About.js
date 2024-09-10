@@ -26,7 +26,7 @@ export function About({user}) {
     });
 
     const content = (
-        <div>
+        <div className='test'>
             <p>{user.about} </p>
             <br/><br/>
             <h2> Working Experience </h2>
