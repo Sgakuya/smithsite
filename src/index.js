@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import test from "./data/test.json"
 import { Main } from './components/Home';
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const user = test[0];
 root.render(
